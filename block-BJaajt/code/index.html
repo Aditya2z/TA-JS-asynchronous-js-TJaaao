@@ -1,16 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API</title>
-</head>
-<body>
-    <input type="text">
-    <div class="root">
+    <style>
+      /* Center the content vertically and horizontally */
+      body {
+        text-align: center;
+        background-color: #f5f5f5;
+      }
 
+      /* Container styles */
+      .root {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Input field styles */
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+
+      /* Image styles */
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        margin: 10px;
+      }
+
+      /* Heading styles */
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      /* Paragraph styles */
+      p {
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      .followers, .following{
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" />
+    <div class="root">
+      <img src="" alt="" />
+      <h3></h3>
+      <p></p>
+      <h4>Followers</h4>
+      <ul class="followers"></ul>
+      <h4>Following</h4>
+      <ul class="following"></ul>
     </div>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
