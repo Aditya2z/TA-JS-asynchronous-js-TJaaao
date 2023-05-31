@@ -1,3 +1,4 @@
+let body = document.querySelector("body");
 let root = document.querySelector(".root");
 let select = document.querySelector("select");
 let optionsArray = [];
@@ -41,16 +42,16 @@ function createUI(data) {
 }
 
 function fetchArticles() {
+  if (!navigator.onLine) {
+    return Promise.reject(new Error("No network connection available."));
+  }
+
   return fetch(`https://api.spaceflightnewsapi.net/v3/articles?_limit=30`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error occurred while fetching articles.");
       }
       return response.json();
-    })
-    .catch((error) => {
-      console.error(error);
-      hideLoadingIndicator();
     });
 }
 
@@ -79,6 +80,11 @@ function handleChange(event) {
         });
       }
     })
+    .catch((error) => {
+      console.error(error);
+      hideLoadingIndicator();
+      body.innerHTML = `<p>${error.message}</p>`; // Display the error message in the body
+    })
     .finally(() => {
       hideLoadingIndicator();
     });
@@ -93,13 +99,17 @@ function hideLoadingIndicator() {
 }
 
 // Initial load
-fetchArticles()
-  .then((articles) => {
-    showLoadingIndicator();
-    articles.forEach((element) => {
-      createUI(element);
+if (navigator.onLine) {
+  fetchArticles()
+    .then((articles) => {
+      showLoadingIndicator();
+      articles.forEach((element) => {
+        createUI(element);
+      });
+    })
+    .finally(() => {
+      hideLoadingIndicator();
     });
-  })
-  .finally(() => {
-    hideLoadingIndicator();
-  });
+} else {
+  body.innerHTML = `<p>Check Network Connection</p>`;
+}
