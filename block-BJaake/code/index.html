@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpaceNews</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: burlywood;
+      }
+
+      .title {
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      #newssource {
+        display: block;
+        margin: 20px auto;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        color: #333;
+        cursor: pointer;
+      }
+
+      #newssource::-ms-expand {
+        display: none; /* Remove default arrow in IE/Edge */
+      }
+
+      /* Custom arrow icon */
+      #newssource:after {
+        content: "\25BC";
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .root {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .article {
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .article img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .heading {
+        padding: 10px;
+      }
+
+      .heading button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 4px 8px;
+        margin-bottom: 6px;
+        cursor: pointer;
+      }
+
+      .heading h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .heading a {
+        display: inline-block;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+      }
+
+      .heading a:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Space News Everyehere</h1>
+      <select name="newssource" id="newssource">
+        <option value="All">Select a News Source</option>
+      </select>
+      <div class="root"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
